@@ -11,7 +11,13 @@ sudo dnf install skopeo buildah podman virt-manager qemu-kvm ansible -y
 
 sudo dnf install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 
+sudo dnf install dotnet-sdk-3.0 -y
 
+
+# dotnet new console -o console
+# $ cd console
+# $ dotnet publish
+# $ bin/Debug/netcoreapp3.0/publish/console
 
 #sudo dnf install xorg-x11-drv-nvidia-cuda
 #sudo dnf install obs-studio

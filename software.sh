@@ -5,6 +5,9 @@ sudo dnf groupinstall "Audio Production" -y
 sudo dnf groupinstall "Neuron Modelling Simulators" -y
 sudo dnf groupinstall "RPM Development Tools" -y
 
+sudo dnf install no-more-secrets code-editor texlive-* -y
+
+
 sudo dnf install rawtherapee gnome-raw-thumbnailer gnome-epub-thumbnailer ufraw fltk fltk-devel gnome-tweaks -y
 sudo dnf install blender krita gimp inkscape scribus java-latest-openjdk-devel cmake clang llvm qtcreator -y
 sudo dnf install skopeo buildah podman virt-manager qemu-kvm ansible -y

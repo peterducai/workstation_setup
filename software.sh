@@ -33,3 +33,7 @@ sudo flatpak remote-add flathub https://flathub.org/repo/flathub.flatpakrepo
 flatpak install flathub io.dbeaver.DBeaverCommunity -y
 flatpak install flathub com.visualstudio.code
 flatpak install flathub org.gnome.Builder
+
+sudo dnf install coreos-installer -y
+coreos-installer download --stream stable --platform qemu --decompress  --format qcow2.xz
+sudo mv fedora-coreos-qemu.qcow2 /var/lib/libvirt/images/fedora-coreos-qemu.qcow2

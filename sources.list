@@ -4,7 +4,6 @@ https://github.com/coredns/coredns.git
 https://github.com/electron/electron-api-demos
 https://github.com/kubernetes/kubernetes.git
 https://github.com/m3db/m3.git
-https://github.com/rook/rook.git
 https://github.com/tabler/tabler-icons.git
 https://github.com/google/trillian.git
 https://github.com/operator-framework/operator-lifecycle-manager.git
@@ -16,3 +15,9 @@ https://github.com/openshift/installer.git
 https://github.com/openshift/okd.git
 https://github.com/openshift/origin.git
 https://github.com/openshift/openshift-docs.git
+https://github.com/kubernetes/ingress-nginx.git
+https://github.com/kubernetes/minikube.git
+https://github.com/helm/helm.git
+https://github.com/helm/charts.git
+https://github.com/kubernetes/kubernetes.git
+https://github.com/rook/rook.git

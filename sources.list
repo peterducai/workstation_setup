@@ -13,3 +13,6 @@ https://github.com/operator-framework/operator-metering.git
 https://github.com/operator-framework/operator-registry.git
 https://github.com/openshift/origin.git
 https://github.com/openshift/installer.git
+https://github.com/openshift/okd.git
+https://github.com/openshift/origin.git
+https://github.com/openshift/openshift-docs.git

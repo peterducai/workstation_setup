@@ -7,3 +7,6 @@ https://github.com/m3db/m3.git
 https://github.com/rook/rook.git
 https://github.com/tabler/tabler-icons.git
 https://github.com/google/trillian.git
+https://github.com/operator-framework/operator-lifecycle-manager.git
+https://github.com/operator-framework/operator-sdk.git
+https://github.com/operator-framework/operator-metering.git

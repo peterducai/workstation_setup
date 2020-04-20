@@ -28,3 +28,6 @@ sudo dnf install dotnet-sdk-3.0 -y
 
 #sudo dnf install xorg-x11-drv-nvidia-cuda
 #sudo dnf install obs-studio
+
+sudo flatpak remote-add flathub https://flathub.org/repo/flathub.flatpakrepo
+flatpak install flathub io.dbeaver.DBeaverCommunity -y

@@ -40,3 +40,24 @@ flatpak install flathub org.gnome.Builder
 
 coreos-installer download --stream stable --platform qemu --decompress  --format qcow2.xz
 sudo mv fedora-coreos-qemu.qcow2 /var/lib/libvirt/images/fedora-coreos-qemu.qcow2
+
+# $ vim fcos.fcc 
+# variant: fcos
+# version: 1.0.0
+# passwd:
+#   users:
+#     - name: core
+#       ssh_authorized_keys:
+#         - ssh-rsa <ssh-pub-key>
+        
+# $ podman pull quay.io/coreos/fcct
+# $ podman run -i --rm quay.io/coreos/fcct -pretty -strict <fcos.fcc > fcos.ign
+# $ podman run --rm -i quay.io/coreos/ignition-validate - < fcos.ign
+
+# virt-install -n fcos --vcpus 2 -r 2048 \
+#   --os-variant=fedora31 --import \
+#   --network bridge=virbr0 \
+#   --disk=/var/lib/libvirt/images/fedora-coreos-qemu.qcow2,format=qcow2,bus=virtio \
+#   --noautoconsole \
+#   --qemu-commandline="-fw_cfg name=opt/com.coreos/config,file=/path/to/fcos.ign"
+

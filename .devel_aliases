@@ -5,6 +5,8 @@ alias gitupall='ls | xargs -I{} git -C {} pull'
 alias gitshowurl='find . -type d -exec sh -c ''cd "{}"; git config --get remote.origin.url\'' \; -prune -print'
 alias gitshowurls='ls | xargs -I{} git -C {} config --get remote.origin.url'
 
+alias crcred='crc console --credentials'
+
 # Serve folder with Python web server
 alias pythonserve='(python -m SimpleHTTPServer) & (firefox http://localhost:8000)'
 

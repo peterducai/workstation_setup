@@ -10,3 +10,4 @@ github.com/KyleBanks/depth/cmd/depth
 github.com/ofabry/go-callvis
 github.com/oxequa/realize
 github.com/cweill/gotests/...
+golang.org/x/tour

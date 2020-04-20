@@ -15,3 +15,5 @@ alias cert_generate='openssl req -x509 \
  -keyout self.key.pem \
  -out self-x509.crt \
  -subj "/C=CZ/ST=CZ/L=Prague/CN=mypage.com/emailAddress=myadmin@mypage.com"'
+
+ # oc policy add-role-to-user edit <user> -n <target_project>

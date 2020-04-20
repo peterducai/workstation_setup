@@ -33,3 +33,6 @@ sudo flatpak remote-add flathub https://flathub.org/repo/flathub.flatpakrepo
 flatpak install flathub io.dbeaver.DBeaverCommunity -y
 flatpak install flathub com.visualstudio.code
 flatpak install flathub org.gnome.Builder
+
+sudo dnf install plymouth-theme-hot-dog
+sudo plymouth-set-default-theme hot-dog -R

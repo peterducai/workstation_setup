@@ -10,3 +10,5 @@ centos
 java
 elcolio/etcd
 grafana/grafana
+docker.io/gitlab/gitlab-runner
+docker.io/gitlab/gitlab-ce

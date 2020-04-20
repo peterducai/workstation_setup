@@ -31,3 +31,4 @@ sudo dnf install dotnet-sdk-3.0 -y
 
 sudo flatpak remote-add flathub https://flathub.org/repo/flathub.flatpakrepo
 flatpak install flathub io.dbeaver.DBeaverCommunity -y
+flatpak install flathub com.visualstudio.code

@@ -6,6 +6,7 @@ sudo dnf groupinstall "Neuron Modelling Simulators" -y
 sudo dnf groupinstall "RPM Development Tools" -y
 
 sudo dnf install no-more-secrets code-editor texlive-* -y
+sudo dnf install geteltorito genisoimage
 
 
 sudo dnf install rawtherapee gnome-raw-thumbnailer gnome-epub-thumbnailer ufraw fltk fltk-devel gnome-tweaks -y

@@ -10,3 +10,6 @@ https://github.com/google/trillian.git
 https://github.com/operator-framework/operator-lifecycle-manager.git
 https://github.com/operator-framework/operator-sdk.git
 https://github.com/operator-framework/operator-metering.git
+https://github.com/operator-framework/operator-registry.git
+https://github.com/openshift/origin.git
+https://github.com/openshift/installer.git

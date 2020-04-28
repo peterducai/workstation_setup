@@ -17,6 +17,9 @@ sudo dnf install rawtherapee gnome-raw-thumbnailer gnome-epub-thumbnailer ufraw 
 sudo dnf install blender krita gimp inkscape scribus java-latest-openjdk-devel cmake clang llvm qtcreator -y
 sudo dnf install skopeo buildah podman virt-manager qemu-kvm ansible nodejs postgres -y
 
+pip install qiskit
+sudo pip install novas_de405
+
 
 sudo dnf install dotnet-sdk-3.0 -y
 

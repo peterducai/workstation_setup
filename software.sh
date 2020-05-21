@@ -17,6 +17,10 @@ sudo dnf install rawtherapee gnome-raw-thumbnailer gnome-epub-thumbnailer ufraw 
 sudo dnf install blender krita gimp inkscape scribus java-latest-openjdk-devel cmake clang llvm qtcreator -y
 sudo dnf install skopeo buildah podman virt-manager qemu-kvm ansible nodejs postgres -y
 
+sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
+sudo sh -c 'echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/vscode.repo'
+
+
 pip install qiskit
 sudo pip install novas_de405
 
@@ -37,12 +41,11 @@ sudo dnf install coreos-installer -y
 
 
 flatpak install flathub io.dbeaver.DBeaverCommunity -y
-flatpak install flathub com.visualstudio.code
 flatpak install flathub org.gnome.Builder
 
 
-coreos-installer download --stream stable --platform qemu --decompress  --format qcow2.xz
-sudo mv fedora-coreos-qemu.qcow2 /var/lib/libvirt/images/fedora-coreos-qemu.qcow2
+# coreos-installer download --stream stable --platform qemu --decompress  --format qcow2.xz
+# sudo mv fedora-coreos-qemu.qcow2 /var/lib/libvirt/images/fedora-coreos-qemu.qcow2
 
 # $ vim fcos.fcc 
 # variant: fcos

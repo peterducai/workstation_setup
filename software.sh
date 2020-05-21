@@ -24,6 +24,11 @@ sudo sh -c 'echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.m
 pip install qiskit
 sudo pip install novas_de405
 
+sudo dnf install -y rubygems liberation-fonts-common liberation-sans-fonts redhat-display-fonts redhat-text-fonts
+gem install asciidoctor
+gem install --pre asciidoctor-pdf
+gem install coderay pygments.rb rouge
+
 
 sudo dnf install dotnet-sdk-3.0 -y
 

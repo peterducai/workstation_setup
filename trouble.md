@@ -96,7 +96,16 @@ Set this boolean to on across any node that will host pods which may require NFS
 
 setsebool -P virt_use_nfs=true
 
-
+The first file contains output for:
+# oc get is nexus -o yaml
+# oc describe is nexus
+# oc get dc nexus -o yaml
+# oc get secrets
+# oc get secrets nexus-repository-manager-parameters-lrgsh -o yaml
+# oc describe sa default
+# oc describe sa builder
+# oc whoami
+# oc get sa
 
 ## CSR
 
@@ -121,6 +130,15 @@ fio --rw=write --ioengine=sync --fdatasync=1 --directory=test-data --size=22m --
 
 https://github.com/etcd-io/etcd/blob/master/Documentation/faq.md#what-does-the-etcd-warning-failed-to-send-out-heartbeat-on-time-mean
 
+
+#oc project openshift-etcd
+#oc rsh etcd-pod-name
+- From inside container run below commands:
+etcdctl member list -w table
+etcdctl endpoint health --cluster
+etcdctl check perf --load="m"
+etcdctl check perf --load="l"
+etcdctl check perf --load="xl"
 
 
 ## Monitoring
@@ -164,3 +182,11 @@ Run the container using the image you built in the previous step:
 
 # podman run --device=/dev/cpu_dma_latency --cap-add ipc_lock --cap-add \
 	sys_nice --cap-add sys_rawio --rm -ti cyclictest
+
+
+
+
+
+  https://catalog.redhat.com/hardware
+
+  tcpdump https://access.redhat.com/solutions/4569211

@@ -8,6 +8,33 @@
 # oc whoami &> whoami.txt
 # oc get rolebinding &> role.txt
 
+
+
+Could you please provide us with the below information:
+
+[1] Please provide us the logs of the affected application pods.
+
+	$ oc logs <pod-name> &> <pod-name>.logs
+
+[2] Please get the output of the following commands to get the cluster state:
+
+	$ oc get nodes
+	$ oc get events -n <affected namespace>
+	
+[3] Also provide us the logs from the router pod in default namespace:
+
+	$ oc logs <router-pod-name> &> router-pod.logs
+
+[4] Also provide us with the api and controller logs:
+
+	$ /usr/local/bin/master-logs api api &> api.logs
+	$ /usr/local/bin/master-logs controllers controllers &> controller.logs
+
+Let me know your thoughts on it.
+
+
+
+
 ## Basics
 
 oc get nodes -o wide
@@ -134,12 +161,19 @@ https://github.com/etcd-io/etcd/blob/master/Documentation/faq.md#what-does-the-e
 #oc project openshift-etcd
 #oc rsh etcd-pod-name
 - From inside container run below commands:
+
+oc get event -n openshift-etcd-operator
 etcdctl member list -w table
 etcdctl endpoint health --cluster
+
 etcdctl check perf --load="m"
 etcdctl check perf --load="l"
 etcdctl check perf --load="xl"
 
+
+The `etcdctl perf check` command is a performance test that simulations load on the etcd database. The Medium test simulates 200 clients, Large simulates 500 clients, and eXtra Large simulates 1000 clients writing key value pairs.
+
+It measures throughput of the disk, the slowest response, and stddev.
 
 ## Monitoring
 

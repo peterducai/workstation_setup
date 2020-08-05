@@ -9,6 +9,16 @@
 # oc get rolebinding &> role.txt
 
 
+2
+
+The kubelet process is responsible for pulling images from a registry.
+
+This is how you can check the kubelet logs:
+
+$ journalctl -u kubelet
+
+
+
 
 Could you please provide us with the below information:
 
@@ -224,3 +234,26 @@ Run the container using the image you built in the previous step:
   https://catalog.redhat.com/hardware
 
   tcpdump https://access.redhat.com/solutions/4569211
+
+
+  ================================================================================
+
+
+  $ journalctl -b -f -u bootkube.service
+
+Collect the bootstrap host’s container logs using the Podman logs. This is shown as a loop to get all of the container logs from the host:
+
+$ for pod in $(sudo podman ps -a -q); do sudo podman logs $pod; done
+
+Alternatively, collect the host’s container logs using the tail command by running:
+
+# tail -f /var/lib/containers/storage/overlay-containers/*/userdata/ctr.log
+
+Collect the kubelet.service and crio.service service logs from the master and worker hosts using the journalctl command by running:
+
+$ journalctl -b -f -u kubelet.service -u crio.service
+
+Collect the master and worker host container logs using the tail command by running:
+
+$ sudo tail -f /var/log/containers/*
+

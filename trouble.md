@@ -89,6 +89,9 @@ oc get ev -n openshift-operators
 oc get all -n openshift-operator-lifecycle-manager
 and check logs in pods
 
+
+oc get ip,csv,sub -n openshift-operators
+
 --------------------------
 
 

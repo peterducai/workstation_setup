@@ -85,6 +85,10 @@ container-security-operator                  Red Hat Operators     29d
 
 oc get ev -n openshift-operators
 
+
+oc get all -n openshift-operator-lifecycle-manager
+and check logs in pods
+
 --------------------------
 
 

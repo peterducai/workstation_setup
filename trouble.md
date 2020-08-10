@@ -9,6 +9,10 @@
 # oc get rolebinding &> role.txt
 
 
+MUST-GATHER 3.11
+https://docs.openshift.com/container-platform/3.11/admin_guide/diagnostics_tool.html
+
+
 2
 
 The kubelet process is responsible for pulling images from a registry.
@@ -65,6 +69,23 @@ systemctl restart etcd
 
 $ oc get csv <operator> -n <namespace> -o yaml
 $ oc get sub <operator> -n <namespace> -o yaml
+
+
+oc get packagemanifests -n openshift-marketplace|grep security
+container-security-operator                  Red Hat Operators     29d
+[pducai@t480 ~]$ oc describe packagemanifests container-security-operator -n openshift-marketplace
+
+
+  791  oc get all -n openshift-operators
+  792  oc logs pod/container-security-operator-8478d67946-pzktw
+  793  oc logs container-security-operator-8478d67946-pzktw
+  794  oc logs container-security-operator-8478d67946-pzktw -n openshift-operators
+
+
+
+oc get ev -n openshift-operators
+
+--------------------------
 
 
 $ oc describe co <operator> (for Cluster operator)
@@ -132,6 +153,14 @@ virt_use_nfs --> off
 Set this boolean to on across any node that will host pods which may require NFS access (such as databases, registries etc):
 
 setsebool -P virt_use_nfs=true
+
+
+
+Check the clusteroperator status:
+
+$ oc get clusteroperator image-registry
+
+
 
 The first file contains output for:
 # oc get is nexus -o yaml

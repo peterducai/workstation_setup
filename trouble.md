@@ -65,6 +65,19 @@ systemctl restart etcd
 
 
 
+----------------
+3.11 oc adm diagnostics
+
+https://docs.openshift.com/container-platform/3.11/admin_guide/diagnostics_tool.html
+
+## Logging
+
+dump tool 
+https://access.redhat.com/articles/3136551#dump-tool
+
+
+
+
 ## Operators
 
 $ oc get csv <operator> -n <namespace> -o yaml
@@ -91,6 +104,11 @@ and check logs in pods
 
 
 oc get ip,csv,sub -n openshift-operators
+
+[pducai@t480 storage]$ oc get csv
+NAME                                 DISPLAY              VERSION   REPLACES   PHASE
+container-security-operator.v3.3.0   Container Security   3.3.0                Succeeded
+
 
 --------------------------
 
@@ -215,6 +233,20 @@ etcdctl endpoint health --cluster
 etcdctl check perf --load="m"
 etcdctl check perf --load="l"
 etcdctl check perf --load="xl"
+
+and also dd benchmark on master nodes.
+
+--------------
+- Make sure you have enough free space, this test will create a ~400 MB file to test the IO.
+        # df -h /var/lib/etcd
+    - Check the performance with 4K block size (it will take time, depending on the disk performance):
+        # dd if=/dev/zero of=/var/lib/etcd/dd-zero.test bs=4k count=100000 oflag=direct
+    - Check the performance with 1K block size (it will take time, depending on the disk performance):
+        # dd if=/dev/zero of=/var/lib/etcd/dd-zero.test bs=1k count=400000 oflag=direct
+    - Record the outputs, attach it to case and remove the test file:
+        # rm /var/lib/etcd/dd-zero.test
+
+For reference, classical 7200rpm disk will do 8.5MB/s in second test.
 
 
 The `etcdctl perf check` command is a performance test that simulations load on the etcd database. The Medium test simulates 200 clients, Large simulates 500 clients, and eXtra Large simulates 1000 clients writing key value pairs.

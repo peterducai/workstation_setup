@@ -18,20 +18,22 @@
       ansible.builtin.shell: podman pull {{  containers  }}
     - name: Install Rustup
       ansible.builtin.shell: curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-    - name: "Find out if PostgreSQL is initialized"
+    - name: create disk
+      ansible.builtin.shell: qemu-img create -f qcow2 -o preallocation=metadata $VM.new.image 60G
+    - name: Find out if PostgreSQL is initialized
       ansible.builtin.stat:
         path: "/var/lib/pgsql/data/pg_hba.conf"
       register: postgres_data
 
-    - name: "Initialize PostgreSQL"
+    - name: Initialize PostgreSQL
       shell: "postgresql-setup initdb"
       when: not postgres_data.stat.exists
  
-    - name: "Start and enable services"
+    - name: Start and enable services
       service: "name={{ item }} state=started enabled=yes"
       with_items:
         - postgresql
-    - name: "Download images for VMs"
+    - name: Download images for VMs
       get_url:
         url: "{{vms}}"
         dest: /vms/

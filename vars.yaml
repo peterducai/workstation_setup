@@ -1,0 +1,40 @@
+---
+my_var: "cups.xyz.com"
+
+postgres_db_user: app1user
+postgres_db_password: app1user
+postgres_db_name: app1
+
+packages:
+  - vim
+  - cargo
+  - golang
+  - texlive-*
+  - rawtherapee
+  - blender 
+  - krita 
+  - gimp
+  - inkscape
+  - scribus 
+  - java-latest-openjdk-devel 
+  - cmake 
+  - clang 
+  - llvm
+  - skopeo 
+  - buildah 
+  - podman 
+  - virt-manager 
+  - qemu-kvm 
+  - nodejs 
+  - postgresql-server
+
+containers:
+  - registry.fedoraproject.org/fedora:latest
+  - docker.io/library/postgres:latest
+
+vms:
+  - https://builds.coreos.fedoraproject.org/prod/streams/stable/builds/34.20210821.3.0/x86_64/fedora-coreos-34.20210821.3.0-live-rootfs.x86_64.img
+  - https://builds.coreos.fedoraproject.org/prod/streams/stable/builds/34.20210821.3.0/x86_64/fedora-coreos-34.20210821.3.0-live-initramfs.x86_64.img
+  - https://builds.coreos.fedoraproject.org/prod/streams/stable/builds/34.20210821.3.0/x86_64/fedora-coreos-34.20210821.3.0-live-kernel-x86_64
+  - https://builds.coreos.fedoraproject.org/prod/streams/stable/builds/34.20210821.3.0/x86_64/fedora-coreos-34.20210821.3.0-live.x86_64.iso
+  - https://builds.coreos.fedoraproject.org/prod/streams/stable/builds/34.20210821.3.0/x86_64/fedora-coreos-34.20210821.3.0-qemu.x86_64.qcow2.xz

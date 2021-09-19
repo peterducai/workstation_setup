@@ -1,0 +1,81 @@
+---
+- name: Perform basic configuration for Fedora
+  hosts: localhost
+  connection: local
+  gather_facts: no
+  become: yes
+  vars_files: vars.yaml
+  tasks:
+    - name: Upgrade all packages (may take some time)
+      ansible.builtin.dnf:
+        name: "*"
+        state: latest
+    - name: Install packages
+      ansible.builtin.dnf:
+        name: "{{  packages  }}"
+        state: present
+    - name: Pull images
+      ansible.builtin.shell: podman pull {{  containers  }}
+    - name: Install Rustup
+      ansible.builtin.shell: curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+    - name: "Find out if PostgreSQL is initialized"
+      ansible.builtin.stat:
+        path: "/var/lib/pgsql/data/pg_hba.conf"
+      register: postgres_data
+
+    - name: "Initialize PostgreSQL"
+      shell: "postgresql-setup initdb"
+      when: not postgres_data.stat.exists
+ 
+    - name: "Start and enable services"
+      service: "name={{ item }} state=started enabled=yes"
+      with_items:
+        - postgresql
+    - name: "Download images for VMs"
+      get_url:
+        url: "{{vms}}"
+        dest: /vms/
+        mode: '0440'
+
+  handlers:
+    - name: restart postgres
+      service: name=postgresql state=restarted
+
+      
+  #   - name: Setup internal repository
+  #     yum_repository:
+  #       name: rhel7-csb
+  #       description: RHEL7 CSB packages
+  #       baseurl: http://hdn.corp.redhat.com/rhel7-csb-stage
+  #       enabled: yes
+  #       gpgcheck: no
+  #   - name: Install VPN packages
+  #     dnf:
+  #       name: redhat-internal-NetworkManager-openvpn-profiles
+  #       state: present
+  #   - name: Remove internal repository
+  #     yum_repository:
+  #       name: rhel7-csb
+  #       state: absent
+  #   - name: Setup Kerberos conf
+  #     copy:
+  #       src: krb5.conf
+  #       dest: /etc/krb5.conf
+  #       owner: root
+  #       group: root
+  #       mode: 0644
+  #   - name: Setup printers
+  #     lineinfile:
+  #       path: /etc/cups/cups-browsed.conf
+  #       line: "{{ item }}"
+  #     loop:
+  #       - "BrowsePoll {{ my_var }}"
+  #       - "LocalQueueNamingRemoteCUPS RemoteName"
+  #     notify: restart_and_enable_cups
+
+  # handlers:
+  #   - name: restart_and_enable_cups
+  #     systemd:
+  #       name: cups
+  #       enabled: yes
+  #       state: restarted

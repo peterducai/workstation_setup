@@ -5,6 +5,8 @@ sudo dnf groupinstall "Audio Production" -y
 sudo dnf groupinstall "Neuron Modelling Simulators" -y
 sudo dnf groupinstall "RPM Development Tools" -y
 
+pip3 install o-must-gather --user
+
 VERSION=1.14
 sudo dnf module enable cri-o:$VERSION
 sudo dnf install vim cri-o golang vim -y

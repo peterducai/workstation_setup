@@ -9,6 +9,8 @@ packages:
   - vim
   - cargo
   - golang
+  - rust
+  - nodejs
   - texlive-*
   - rawtherapee
   - blender 
@@ -22,17 +24,38 @@ packages:
   - llvm
   - skopeo 
   - buildah 
-  - podman 
-  - virt-manager 
-  - qemu-kvm 
-  - nodejs 
+  - podman
+  - qemu-kvm
   - postgresql-server
+  - p7zip*
+  - latex*
+  - openscap*
+  - rubygems liberation-fonts-common liberation-sans-fonts redhat-display-fonts redhat-text-fonts
+  - https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
+  - https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+  - gstreamer1-plugins-{bad-\*,good-\*,base} gstreamer1-plugin-openh264 gstreamer1-libav --exclude=gstreamer1-plugins-bad-free-devel
+  - lame\* --exclude=lame-devel
+
+
 
 containers:
   - registry.fedoraproject.org/fedora:latest
   - docker.io/library/postgres:latest
+  - registry.access.redhat.com/ubi9-init
+  - registry.access.redhat.com/ubi9
+  - registry.access.redhat.com/ubi9-minimal
 
-vms:
+isos:
+  - https://builds.coreos.fedoraproject.org/prod/streams/stable/builds/36.20220605.3.0/x86_64/fedora-coreos-36.20220605.3.0-live.x86_64.iso
+  - https://cdn.openbsd.org/pub/OpenBSD/7.1/amd64/install71.iso
+  - https://download.freebsd.org/releases/amd64/amd64/ISO-IMAGES/13.1/FreeBSD-13.1-RELEASE-amd64-dvd1.iso
+  - https://download.fedoraproject.org/pub/fedora/linux/releases/36/Workstation/x86_64/iso/Fedora-Workstation-Live-x86_64-36-1.5.iso
+
+qemu_images:
+  - https://builds.coreos.fedoraproject.org/prod/streams/stable/builds/36.20220605.3.0/x86_64/fedora-coreos-36.20220605.3.0-qemu.x86_64.qcow2.xz
+
+
+pxe:
   - https://builds.coreos.fedoraproject.org/prod/streams/stable/builds/34.20210821.3.0/x86_64/fedora-coreos-34.20210821.3.0-live-rootfs.x86_64.img
   - https://builds.coreos.fedoraproject.org/prod/streams/stable/builds/34.20210821.3.0/x86_64/fedora-coreos-34.20210821.3.0-live-initramfs.x86_64.img
   - https://builds.coreos.fedoraproject.org/prod/streams/stable/builds/34.20210821.3.0/x86_64/fedora-coreos-34.20210821.3.0-live-kernel-x86_64

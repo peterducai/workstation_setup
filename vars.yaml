@@ -1,10 +1,6 @@
 ---
 my_var: "cups.xyz.com"
 
-postgres_db_user: app1user
-postgres_db_password: app1user
-postgres_db_name: app1
-
 packages:
   - vim
   - cargo

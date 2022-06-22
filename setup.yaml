@@ -17,6 +17,27 @@
     - name: Pull images
       shell: podman pull {{  containers  }}
 
+# - name: Setup PostgreSQL
+#   hosts: localhost
+#   connection: local
+#   gather_facts: no
+#   become: yes
+#   vars_files: db.yaml
+#   tasks:
+#     - name: Find out if PostgreSQL is initialized
+#       stat:
+#         path: "/var/lib/pgsql/data/pg_hba.conf"
+#       register: postgres_data
+
+#     - name: Initialize PostgreSQL
+#       shell: "postgresql-setup initdb"
+#       when: not postgres_data.stat.exists
+ 
+#     - name: Start and enable services
+#       service: "name={{ item }} state=started enabled=yes"
+#       with_items:
+#         - postgresql
+
     # - name: Install Rustup
     #   shell: curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
     # - name: create disk

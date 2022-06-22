@@ -1,0 +1,4 @@
+---
+postgres_db_user: app1user
+postgres_db_password: app1user
+postgres_db_name: app1

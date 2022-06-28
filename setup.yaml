@@ -12,10 +12,15 @@
         state: latest
     - name: Install packages
       dnf:
-        name: "{{  packages  }}"
+        name: "{{ packages }}"
         state: present
+    - name: Install python packages
+      pip:
+        name: "{{ pip-packages }}"
     - name: Pull images
-      shell: podman pull {{  containers  }}
+      containers.podman.podman_container:
+        image: "{{ containers }}"
+        state: present
 
 # - name: Setup PostgreSQL
 #   hosts: localhost

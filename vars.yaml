@@ -32,6 +32,10 @@ packages:
   - gstreamer1-plugins-{bad-\*,good-\*,base} gstreamer1-plugin-openh264 gstreamer1-libav --exclude=gstreamer1-plugins-bad-free-devel
   - lame\* --exclude=lame-devel
 
+pip-packages:
+  - tensorflow
+  - qiskit[all]
+
 
 
 containers:
@@ -40,7 +44,8 @@ containers:
   - registry.access.redhat.com/ubi9-init
   - registry.access.redhat.com/ubi9
   - registry.access.redhat.com/ubi9-minimal
-
+  - docker.io/tensorflow/tensorflow:latest 
+  
 isos:
   - https://builds.coreos.fedoraproject.org/prod/streams/stable/builds/36.20220605.3.0/x86_64/fedora-coreos-36.20220605.3.0-live.x86_64.iso
   - https://cdn.openbsd.org/pub/OpenBSD/7.1/amd64/install71.iso

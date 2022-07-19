@@ -5,7 +5,6 @@ packages:
   - vim
   - cargo
   - golang
-  - rust
   - nodejs
   - texlive-*
   - rawtherapee
@@ -44,10 +43,8 @@ packages:
   - selinux-policy-mls
   - selinux-policy-doc
 
-pip-packages:
-  - tensorflow
-  - qiskit[all]
-
+packages-ex:
+  - "curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh"
 
 
 containers:

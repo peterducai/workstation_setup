@@ -14,12 +14,9 @@
       dnf:
         name: "{{ packages }}"
         state: present
-    - name: Install bottle python package
+    - name: "Install python packages"
       ansible.builtin.pip:
-        name: bottle
-    - name: Install python packages
-      ansible.builtin.pip:
-        name: "{{ pip-packages }}"
+        requirements: requirements.txt
     - name: Pull images
       containers.podman.podman_container:
         image: "{{ containers }}"

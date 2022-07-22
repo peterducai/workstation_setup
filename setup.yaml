@@ -1,26 +1,52 @@
 ---
-- name: Perform basic configuration for Fedora
+# - name: Perform basic configuration for Fedora
+#   hosts: localhost
+#   connection: local
+#   gather_facts: no
+#   become: yes
+#   vars_files: vars.yaml
+#   tasks:
+#     - name: Upgrade all packages (may take some time)
+#       dnf:
+#         name: "*"
+#         state: latest
+#       ignore_errors: yes
+#     - name: Install packages
+#       dnf:
+#         name: "{{ packages }}"
+#         state: present
+#       ignore_errors: yes
+
+- name: Download images and Github repos
   hosts: localhost
   connection: local
   gather_facts: no
-  become: yes
+  become_user: $USER
   vars_files: vars.yaml
-  tasks:
-    - name: Upgrade all packages (may take some time)
-      dnf:
-        name: "*"
-        state: latest
-    - name: Install packages
-      dnf:
-        name: "{{ packages }}"
-        state: present
+  tasks:   
+    - name: Generate SSH key ed25519
+      openssh_keypair:
+        path: $HOME/.ssh/id_ed25519
+        type: ed25519
+
     - name: "Install python packages"
       ansible.builtin.pip:
-        requirements: requirements.txt
-    - name: Pull images
-      containers.podman.podman_container:
-        image: "{{ containers }}"
-        state: present
+        requirements: $HOME/CODE/workstation_setup/requirements.txt
+
+    - name: Pull image "{{ containers }}"
+      include_tasks: podman_images.yml
+      loop: "{{ containers }}"
+
+    - name: Create a directory if it does not exist
+      ansible.builtin.file:
+        path: $HOME/GITHUB
+        state: directory
+        mode: '0755'
+
+    - name: Pull repo "{{ github_repos }}"
+      include_tasks: github_repos.yml
+      loop: "{{ github_repos }}"
+
 
 # - name: Setup PostgreSQL
 #   hosts: localhost

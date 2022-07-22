@@ -43,6 +43,23 @@ packages:
   - selinux-policy-mls
   - selinux-policy-doc
 
+github_repos:
+  - git@github.com:peterducai/aidb.git
+  - git@github.com:peterducai/asciidoc-template.git
+  - git@github.com:peterducai/file_transformer.git
+  - git@github.com:peterducai/free_art.git
+  - git@github.com:peterducai/jobdsigner.git
+  - git@github.com:peterducai/open-competition-board.git
+  - git@github.com:peterducai/open_development_foundation.git
+  - https://github.com/OpenLogicProject/OpenLogic.git
+  - git@github.com:peterducai/openshift-etcd-suite.git
+  - https://github.com/patternfly/patternfly-react-seed.git
+  - git@gitlab.com:daemonna/remath.git
+  - git@github.com:peterducai/remath.git
+  - git@github.com:peterducai/troubleshooter-ocp4.git
+  - git@github.com:peterducai/workstation_setup.git
+
+
 packages-ex:
   - "curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh"
 

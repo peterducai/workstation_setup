@@ -1,0 +1,6 @@
+
+---
+- name: Pull images
+  containers.podman.podman_image:
+    name: "{{ item }}"
+  ignore_errors: yes

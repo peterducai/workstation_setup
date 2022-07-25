@@ -51,9 +51,9 @@ github_repos:
   - git@github.com:peterducai/jobdsigner.git
   - git@github.com:peterducai/open-competition-board.git
   - git@github.com:peterducai/open_development_foundation.git
-  - https://github.com/OpenLogicProject/OpenLogic.git
+  # - https://github.com/OpenLogicProject/OpenLogic.git
   - git@github.com:peterducai/openshift-etcd-suite.git
-  - https://github.com/patternfly/patternfly-react-seed.git
+  # - https://github.com/patternfly/patternfly-react-seed.git
   - git@gitlab.com:daemonna/remath.git
   - git@github.com:peterducai/remath.git
   - git@github.com:peterducai/troubleshooter-ocp4.git

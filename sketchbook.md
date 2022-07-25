@@ -7,19 +7,17 @@ docker run -it -p 8888:8888 tensorflow/tensorflow:latest-jupyter  # Start Jupyte
 
 
 
-$ mkdir -p $QUAY/postgres-quay
-$ setfacl -m u:26:-wx $QUAY/postgres-quay
-Use podman run to start the Postgres container, specifying the username, password, database name and port, together with the volume definition for database data:
-
-$ sudo podman run -d --rm --name postgresql-quay \
-  -e POSTGRESQL_USER=quayuser \
-  -e POSTGRESQL_PASSWORD=quaypass \
-  -e POSTGRESQL_DATABASE=quay \
-  -e POSTGRESQL_ADMIN_PASSWORD=adminpass \
+$ mkdir -p $HOME/aidb
+$ setfacl -m u:26:-wx $HOME/aidb
+$ sudo podman run -d --rm --name postgresql-HOME \
+  -e POSTGRESQL_USER=aidbuser \
+  -e POSTGRESQL_PASSWORD=aidbpass1234 \
+  -e POSTGRESQL_DATABASE=aidb \
+  -e POSTGRESQL_ADMIN_PASSWORD=adminaidbpass1234 \
   -p 5432:5432 \
-  -v $QUAY/postgres-quay:/var/lib/pgsql/data:Z \
-  registry.redhat.io/rhel8/postgresql-10:1
-registry.redhat.io/rhel9/postgresql-13:1-64
+  -v $HOME/postgres-HOME:/var/lib/pgsql/data:Z \
+  registry.redhat.io/rhel9/postgresql-13:1-64
+
 
 
 

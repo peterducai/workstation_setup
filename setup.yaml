@@ -45,7 +45,7 @@
 
     - name: Pull repo "{{ github_repos }}"
       include_tasks: github_repos.yml
-      loop: "{{ github_repos }}"
+      loop: "{{ github_repos | dict2items }}"
 
 
 # - name: Setup PostgreSQL

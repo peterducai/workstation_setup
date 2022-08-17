@@ -24,10 +24,8 @@
   become_user: $USER
   vars_files: vars.yaml
   tasks:   
-    - name: Generate SSH key ed25519
-      openssh_keypair:
-        path: $HOME/.ssh/id_ed25519
-        type: ed25519
+    # - name: Generate SSH key ed25519    # you need ansible-galaxy collection install community.crypto to be able to use it
+    #   command: ssh-keygen -t ed25519 -a 100 -f ~/.ssh/id_ed25519 -q -N ""
 
     - name: "Install python packages"
       ansible.builtin.pip:

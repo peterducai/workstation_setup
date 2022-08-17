@@ -22,6 +22,16 @@ $ sudo podman run -d --rm --name postgresql-HOME \
 
 
 
+dotnet new console -o hello-world
+dotnet run 
+
+
+
+
+$ ssh user@git.example.com
+$ cd /srv/git/my_project.git
+$ git init --bare --shared
+
 
 
 

@@ -6,6 +6,7 @@ packages:
   - cargo
   - golang
   - nodejs
+  - sqlite
   - texlive-*
   - rawtherapee
   - blender 
@@ -42,6 +43,10 @@ packages:
   - policycoreutils
   - selinux-policy-mls
   - selinux-policy-doc
+  - dotnet-sdk-6.0
+
+external_rpms:
+  - https://dbeaver.io/files/dbeaver-ce-latest-stable.x86_64.rpm
 
 github_repos:
   aidb: git@github.com:peterducai/aidb.git
@@ -57,6 +62,9 @@ github_repos:
   remath: git@gitlab.com:daemonna/remath.git
   troubleshooter-ocp4: git@github.com:peterducai/troubleshooter-ocp4.git
   workstation_setup: git@github.com:peterducai/workstation_setup.git
+  awx: https://github.com/ansible/awx.git
+  infra_ansible: https://github.com/redhat-cop/infra-ansible.git
+  automation_good_practices: https://github.com/redhat-cop/automation-good-practices.git
 
 
 packages-ex:
@@ -70,6 +78,8 @@ containers:
   - registry.access.redhat.com/ubi9
   - registry.access.redhat.com/ubi9-minimal
   - docker.io/tensorflow/tensorflow:latest 
+  - docker.io/gitlab/gitlab-runner:latest
+  - registry.access.redhat.com/ubi9/openssl
   
 isos:
   - https://builds.coreos.fedoraproject.org/prod/streams/stable/builds/36.20220605.3.0/x86_64/fedora-coreos-36.20220605.3.0-live.x86_64.iso

@@ -21,14 +21,14 @@
   hosts: localhost
   connection: local
   gather_facts: no
-  become_user: $USER
   vars_files: vars.yaml
+  become_user: root
   tasks:   
     # - name: Generate SSH key ed25519    # you need ansible-galaxy collection install community.crypto to be able to use it
     #   command: ssh-keygen -t ed25519 -a 100 -f ~/.ssh/id_ed25519 -q -N ""
 
     - name: "Install python packages"
-      ansible.builtin.pip:
+      pip:
         requirements: $HOME/CODE/workstation_setup/requirements.txt
 
     - name: Pull image "{{ containers }}"

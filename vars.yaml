@@ -59,7 +59,7 @@ github_repos:
   OpenLogic: https://github.com/OpenLogicProject/OpenLogic.git
   openshift-etcd-suite: git@github.com:peterducai/openshift-etcd-suite.git
   patternfly-react-seed: https://github.com/patternfly/patternfly-react-seed.git
-  remath: git@gitlab.com:daemonna/remath.git
+  remath: git@github.com:peterducai/remath.git
   troubleshooter-ocp4: git@github.com:peterducai/troubleshooter-ocp4.git
   workstation_setup: git@github.com:peterducai/workstation_setup.git
   awx: https://github.com/ansible/awx.git

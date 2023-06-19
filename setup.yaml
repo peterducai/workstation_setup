@@ -40,7 +40,7 @@
 
     - name: "Install python packages"
       pip:
-        requirements: $HOME/CODE/workstation_setup/requirements.txt
+        requirements: $HOME/GITHUB/workstation_setup/requirements.txt
 
     - name: Pull image "{{ containers }}"
       include_tasks: podman_images.yml

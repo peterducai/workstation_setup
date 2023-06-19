@@ -1,7 +1,7 @@
 ---
-- name: Read-write git checkout from github
+- name: Checkout from {{ item.key }}
   ansible.builtin.git:
     repo: "{{ item.value }}"
-    dest: $HOME/GITHUB/"{{ item.key }}"
+    dest: $HOME/GITHUB/{{ item.key }}
     key_file: $HOME/.ssh/id_ed25519
     accept_hostkey: true

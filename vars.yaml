@@ -29,7 +29,8 @@ packages:
   - rawtherapee
   - redhat-display-fonts 
   - redhat-text-fonts
-  - rubygems 
+  - rubygems
+  - rust
   - scribus 
   - selinux-policy-doc
   - selinux-policy-doc

@@ -27,6 +27,17 @@
     # - name: Generate SSH key ed25519    # you need ansible-galaxy collection install community.crypto to be able to use it
     #   command: ssh-keygen -t ed25519 -a 100 -f ~/.ssh/id_ed25519 -q -N ""
 
+    - name: Upgrade all packages (may take some time)
+      dnf:
+        name: "*"
+        state: latest
+      ignore_errors: yes
+    - name: Install packages
+      dnf:
+        name: "{{ packages }}"
+        state: present
+      ignore_errors: yes
+
     - name: "Install python packages"
       pip:
         requirements: $HOME/CODE/workstation_setup/requirements.txt

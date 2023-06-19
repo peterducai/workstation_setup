@@ -2,48 +2,48 @@
 my_var: "cups.xyz.com"
 
 packages:
-  - vim
-  - cargo
-  - golang
-  - nodejs
-  - sqlite
-  - texlive-*
-  - rawtherapee
+  - ansible-collection*
   - blender 
-  - krita 
-  - gimp
-  - inkscape
-  - scribus 
-  - java-latest-openjdk-devel 
-  - cmake 
-  - clang 
-  - llvm
-  - skopeo 
   - buildah 
-  - podman
-  - qemu-kvm
-  - postgresql-server
-  - p7zip*
+  - cargo
+  - clang 
+  - cmake 
+  - dotnet-sdk-6.0
+  - gimp
+  - golang
+  - inkscape
+  - java-latest-openjdk-devel 
+  - krita 
   - latex*
-  - openscap*
-  - rubygems 
   - liberation-fonts-common 
   - liberation-sans-fonts 
+  - llvm
+  - mcstrans
+  - nodejs
+  - openscap*
+  - p7zip*
+  - podman
+  - policycoreutils
+  - postgresql-server
+  - qemu-kvm
+  - rawtherapee
   - redhat-display-fonts 
   - redhat-text-fonts
+  - rubygems 
+  - scribus 
+  - selinux-policy-doc
+  - selinux-policy-doc
+  - selinux-policy-mls
+  - setools
+  - setroubleshoot
+  - skopeo 
+  - sqlite
+  - texlive-*
+  - vim
+  # - gstreamer1-plugins-{bad-\*,good-\*,base} gstreamer1-plugin-openh264 gstreamer1-libav --exclude=gstreamer1-plugins-bad-free-devel
   # - https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
   # - https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
-  # - gstreamer1-plugins-{bad-\*,good-\*,base} gstreamer1-plugin-openh264 gstreamer1-libav --exclude=gstreamer1-plugins-bad-free-devel
   # - lame\* --exclude=lame-devel
-  - ansible-collection*
-  - selinux-policy-doc
-  - setroubleshoot
-  - setools
-  - mcstrans
-  - policycoreutils
-  - selinux-policy-mls
-  - selinux-policy-doc
-  - dotnet-sdk-6.0
 
 external_rpms:
   - https://dbeaver.io/files/dbeaver-ce-latest-stable.x86_64.rpm
@@ -51,20 +51,23 @@ external_rpms:
 github_repos:
   aidb: git@github.com:peterducai/aidb.git
   asciidoc-template: git@github.com:peterducai/asciidoc-template.git
+  automation_good_practices: https://github.com/redhat-cop/automation-good-practices.git
+  awx: https://github.com/ansible/awx.git
+  etcd-tools: git@github.com:peterducai/etcd-tools.git
   file_transformer: git@github.com:peterducai/file_transformer.git
   free_art: git@github.com:peterducai/free_art.git
+  infra_ansible: https://github.com/redhat-cop/infra-ansible.git
   jobdsigner: git@github.com:peterducai/jobdsigner.git
-  open-competition-board: git@github.com:peterducai/open-competition-board.git
+  kube-perf-analyzer: git@github.com:peterducai/kube-perf-analyzer.git
   open_development_foundation: git@github.com:peterducai/open_development_foundation.git
+  open-competition-board: git@github.com:peterducai/open-competition-board.git
   OpenLogic: https://github.com/OpenLogicProject/OpenLogic.git
   openshift-etcd-suite: git@github.com:peterducai/openshift-etcd-suite.git
   patternfly-react-seed: https://github.com/patternfly/patternfly-react-seed.git
   remath: git@github.com:peterducai/remath.git
+  rust-template: git@github.com:peterducai/rust-template.git
   troubleshooter-ocp4: git@github.com:peterducai/troubleshooter-ocp4.git
   workstation_setup: git@github.com:peterducai/workstation_setup.git
-  awx: https://github.com/ansible/awx.git
-  infra_ansible: https://github.com/redhat-cop/infra-ansible.git
-  automation_good_practices: https://github.com/redhat-cop/automation-good-practices.git
 
 
 packages-ex:
@@ -72,14 +75,14 @@ packages-ex:
 
 
 containers:
-  - registry.fedoraproject.org/fedora:latest
-  - docker.io/library/postgres:latest
-  - registry.access.redhat.com/ubi9-init
-  - registry.access.redhat.com/ubi9
-  - registry.access.redhat.com/ubi9-minimal
-  - docker.io/tensorflow/tensorflow:latest 
   - docker.io/gitlab/gitlab-runner:latest
+  - docker.io/library/postgres:latest
+  - docker.io/tensorflow/tensorflow:latest 
+  - registry.access.redhat.com/ubi9
+  - registry.access.redhat.com/ubi9-init
+  - registry.access.redhat.com/ubi9-minimal
   - registry.access.redhat.com/ubi9/openssl
+  - registry.fedoraproject.org/fedora:latest
   
 isos:
   - https://builds.coreos.fedoraproject.org/prod/streams/stable/builds/36.20220605.3.0/x86_64/fedora-coreos-36.20220605.3.0-live.x86_64.iso

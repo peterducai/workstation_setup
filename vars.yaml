@@ -66,6 +66,7 @@ github_repos:
   openshift-etcd-suite: git@github.com:peterducai/openshift-etcd-suite.git
   patternfly-react-seed: https://github.com/patternfly/patternfly-react-seed.git
   remath: git@github.com:peterducai/remath.git
+  rust-dsp: git@github.com:peterducai/rust-dsp.git
   rust-template: git@github.com:peterducai/rust-template.git
   troubleshooter-ocp4: git@github.com:peterducai/troubleshooter-ocp4.git
   workstation_setup: git@github.com:peterducai/workstation_setup.git
